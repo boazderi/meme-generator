@@ -1,0 +1,119 @@
+:root {
+    /* Pallet */
+
+    /* BP */
+
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* TYPOGRAPHY */
+
+/* BASICS */
+
+body {
+    margin: 0;
+    background-color: #23252c;
+    height: 100vh;
+}
+
+
+/* LAYOUT */
+
+
+/* HELPERS */
+
+
+/* flex helpers */
+.flex {
+    display: flex;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-evenly {
+    justify-content: space-evenly;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+/* grid helpers */
+
+.grid {
+    display: grid;
+}
+
+
+.head {
+    width: 95%;
+    height: 75px;
+    background: linear-gradient(90deg, #079ab4, #31bc72);
+    border-radius: 50px;
+}
+
+.logo {
+    font-size: x-large;
+    padding-left: 10%;
+}
+
+.nav-area {
+    flex-basis: 50%;
+    font-size: x-large;
+}
+
+.image-editor {
+    height: 550px;
+    width: 100%;
+}
+
+.edit-item {
+    height: 100%;
+    width: 45%;
+
+    background-color: #373b41;
+    border-radius: 10%;
+}
+
+.hide {
+    display: none;
+}
+
+
+.images-gallery {
+    width: 100%;
+}
+
+.gallery-item {
+    width: 90%;
+}
+
+.menu-area {}
+
+.search-photo-input {
+    width: 40%;
+}
+
+.menu-area-item {
+    border-radius: 30px;
+    font-size: larger;
+}
+
+.choose-from-txt {
+    background-color: #87898d;
+    color: white;
+    font-size: xx-large;
+}

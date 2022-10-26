@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <title>MEME GENERATOR</title>
+</head>
+
+<body class="flex flex-column justify-between align-items-center" onload="onInit()">
+    <header class="head">
+        <nav class="nav-bar flex align-items-center justify-between head">
+            <div class="logo nav-area">Boaz Meme generator </div>
+            <div class="links flex nav-area justify-evenly">
+                <div class="gallery-link"> Gallery</div>
+                <div class="about-link"> About</div>
+            </div>
+        </nav>
+    </header>
+    <section class="image-editor hide flex justify-evenly align-items-center">
+        <canvas class="edit-item canvas-container" id="canvas" height="500px" width="500px">
+
+        </canvas>
+        <div class="edit-item edit-section">
+
+        </div>
+    </section>
+    <section class="images-gallery flex flex-column">
+        <div class="gallery-item menu-area flex justify-evenly">
+            <input class="menu-area-item search-photo-input" type="search" placeholder="searce">
+            <div class="menu-area-item choose-from-txt"> a lot of text comes here in white</div>
+            <button class="menu-area-item ">More</button>
+        </div>
+        <div class="gallery-item gallery-area grid">
+        </div>
+
+    </section>
+
+    <footer>
+    </footer>
+
+    <script src="/js/services/utils.js"></script>
+    <script src="/js/services/storage-service.js"></script>
+    <script src="/js/services/meme-service.js"></script>
+    <script src="/js/meme-controller.js"></script>
+</body>
+
+</html>
