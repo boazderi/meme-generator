@@ -29,7 +29,7 @@ function createSqureImgs() {
     for (var i = 1; i < 19; i++) {
         gImgs.push({
             id: i,
-            url: `img/meme-imgs (square)/${i}.jpg`,
+            url: `../img/meme-imgs (square)/${i}.jpg`,
             keywords: gKeyWords[i - 1]
         })
     }
