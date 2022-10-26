@@ -22,10 +22,10 @@ function drawImgAndTxt(imgUrl, memeTxt, x, y) {
 
 
 function drawTxt(memeTxt, x, y) {
-    gCtx.lineWidth = 2
-    gCtx.strokeStyle = 'yellow'
-    gCtx.fillStyle = 'black'
-    gCtx.font = '40px Arial'
+    gCtx.lineWidth = 3
+    gCtx.strokeStyle = gMeme.lines[0].color
+    gCtx.fillStyle = gMeme.lines[0].color
+    gCtx.font = `${gMeme.lines[0].size}px Arial`
     gCtx.fillText(memeTxt, x, y)
     gCtx.strokeText(memeTxt, x, y)
 }

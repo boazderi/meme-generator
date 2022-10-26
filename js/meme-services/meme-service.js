@@ -30,7 +30,7 @@ function createSqureImgs() {
         gImgs.push({
             id: i,
             url: `img/meme-imgs (square)/${i}.jpg`,
-            keywords: gKeyWords[i-1]
+            keywords: gKeyWords[i - 1]
         })
     }
 }
@@ -42,9 +42,9 @@ var gMeme = {
     lines: [
         {
             txt: 'FAKE NEWS!!!',
-            size: 20,
+            size: 30,
             align: 'center',
-            color: 'red'
+            color: 'black'
         }
     ]
 }
@@ -65,4 +65,14 @@ function getGalleryImages() {
 
 function setImg(imgid) {
     gMeme.selectedImgId = imgid
+}
+
+function setColor(newColor) {
+    console.log('newColor', newColor);
+    gMeme.lines[0].color = newColor
+    console.log('gMeme', gMeme);
+}
+
+function setFontSize(num) {
+    gMeme.lines[0].size += num
 }

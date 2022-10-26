@@ -29,3 +29,11 @@ function onTxtInput(txt){
     renderMeme()
 }
 
+function onSetColor(color){
+    console.log('Color',color);
+    setColor(color)
+}
+
+function onChangeFontSize(num){
+    setFontSize(num)
+}

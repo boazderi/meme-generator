@@ -19,16 +19,28 @@
             </div>
         </nav>
     </header>
-    <section class="main-container meme-editor hide flex justify-evenly align-items-center">
+    <section class="main-container meme-editor flex hide justify-evenly align-items-center">
         <canvas class="edit-item canvas-container" id="canvas" height="500px" width="500px">
 
         </canvas>
         <div class="edit-item flex flex-column align-items-center justify-evenly edit-section">
             <input class="text-editor-input" type="text" oninput="onTxtInput(this.value)" placeholder="Edit text here">
+            <div class="text-style-editor">
+                <label>
+                    <img src="/img/ICONS/paint-board-and-brush.png" class="style-icon" width="40px">
+                    <input type="color" name="color" style="display: none;" onchange="onSetColor(this.value)">
+                </label>
+                <label>
+                    <img src="/img/ICONS/increase font - icon.png" onclick="onChangeFontSize(1)" class="style-icon" width="40px">
+                </label>
+                <label>
+                    <img src="/img/ICONS/decrease font - icon.png" onclick="onChangeFontSize(-1)" class="style-icon" width="40px">
+                </label>
 
+            </div>
         </div>
     </section>
-    <section class="main-container images-gallery align-items-center flex justify-evenly flex-column">
+    <section class="main-container images-gallery align-items-center  flex justify-evenly flex-column">
         <div class="gallery-item menu-area flex justify-evenly">
             <input class="menu-area-item search-photo-input" type="search" placeholder="searce">
             <div class="menu-area-item choose-from-txt"> a lot of text comes here in white</div>
