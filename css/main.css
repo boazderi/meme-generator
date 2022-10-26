@@ -1,6 +1,7 @@
 :root {
     /* Pallet */
-
+    --clr-1:#079ab4;
+    --clr-2:#31bc72;
     /* BP */
 
 }
@@ -61,7 +62,7 @@ body {
 .head {
     width: 95%;
     height: 75px;
-    background: linear-gradient(90deg, #079ab4, #31bc72);
+    background: linear-gradient(90deg, var(--clr-1), var(--clr-2));
     border-radius: 50px;
 }
 
@@ -100,8 +101,6 @@ body {
 .gallery-item {
     width: 90%;
 }
-
-.menu-area {}
 
 .search-photo-input {
     width: 40%;
