@@ -8,9 +8,9 @@ var gMeme = {
     selectedLineIdx: 0,
     lines: [
         {
-            txt: 'I sometimes eat Falafel',
+            txt: 'FAKE NEWS!!!',
             size: 20,
-            align: 'left',
+            align: 'center',
             color: 'red'
         }
     ]
@@ -18,4 +18,8 @@ var gMeme = {
 
 function getMeme() {
     return {gMeme, gImg: gImgs[0]}
+}
+
+function setLineTxt(text){
+    gMeme.lines[0].txt = text
 }

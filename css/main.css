@@ -8,6 +8,7 @@
 
 * {
     box-sizing: border-box;
+    font-size: x-large;
 }
 
 /* TYPOGRAPHY */
@@ -58,7 +59,7 @@ body {
     display: grid;
 }
 
-
+/* Header */
 .head {
     width: 95%;
     height: 75px;
@@ -67,14 +68,17 @@ body {
 }
 
 .logo {
-    font-size: x-large;
+    font-size: 36px;
     padding-left: 10%;
 }
 
 .nav-area {
     flex-basis: 50%;
-    font-size: x-large;
 }
+
+/* MAIN */
+
+/* meme editor */
 
 .image-editor {
     height: 550px;
@@ -89,18 +93,35 @@ body {
     border-radius: 10%;
 }
 
+.edit-section{
+
+}
+
+.text-editor-input{
+    font-size: 35px;
+    width: 85%;
+    border-radius: 30px;
+    text-align: center;
+}
+
+
+
+
 .hide {
     display: none;
 }
 
+/* gallery area */
 
 .images-gallery {
     width: 100%;
+    height: 85%;
 }
 
 .gallery-item {
     width: 90%;
 }
+
 
 .search-photo-input {
     width: 40%;
@@ -115,4 +136,15 @@ body {
     background-color: #87898d;
     color: white;
     font-size: xx-large;
+}
+
+.gallery-area{
+    width: 100%;
+    gap: 5px;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+}
+
+.grid-img{
+    object-fit: cover
 }

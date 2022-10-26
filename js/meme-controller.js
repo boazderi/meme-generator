@@ -6,6 +6,7 @@ function onInit(){
     console.log('start init');
     initCanvas()
     renderMeme()
+    renderGallery()
 }
 
 
@@ -16,4 +17,11 @@ function renderMeme(){
     const currMemeTxt = currMeme.gMeme.lines[0].txt
     drawImgAndTxt(currMemeImgPath, currMemeTxt, 30, 50)
     // drawTxt(currMemeTxt, 30, 50)
+}
+
+
+function onTxtInput(txt){
+    console.log('txt',txt);
+    setLineTxt(txt)
+    renderMeme()
 }
