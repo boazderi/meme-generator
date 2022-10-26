@@ -16,7 +16,7 @@
 /* BASICS */
 
 body {
-    margin: 0;
+    /* margin: 0; */
     background-color: #23252c;
     height: 100vh;
 }
@@ -78,9 +78,16 @@ body {
 
 /* MAIN */
 
+.main-container{
+    background-color: #393b42;
+    width: 95%;
+    padding: 30px;
+    border-radius: 15px;
+}
+
 /* meme editor */
 
-.image-editor {
+.meme-editor {
     height: 550px;
     width: 100%;
 }
@@ -99,12 +106,10 @@ body {
 
 .text-editor-input{
     font-size: 35px;
-    width: 85%;
+    width: 95%;
     border-radius: 30px;
     text-align: center;
 }
-
-
 
 
 .hide {
@@ -114,12 +119,11 @@ body {
 /* gallery area */
 
 .images-gallery {
-    width: 100%;
-    height: 85%;
+    /* width: 100%; */
 }
 
 .gallery-item {
-    width: 90%;
+    width: 100%;
 }
 
 
@@ -130,6 +134,8 @@ body {
 .menu-area-item {
     border-radius: 30px;
     font-size: larger;
+    padding: 5px;
+    margin-bottom: 10px;
 }
 
 .choose-from-txt {
@@ -139,12 +145,19 @@ body {
 }
 
 .gallery-area{
+    display: grid;
     width: 100%;
-    gap: 5px;
-    grid-template-columns: repeat(2, 1fr);
+    height: 90%;
+    gap: 30px;
+    object-fit: cover;
+    grid-template-columns: repeat(5, 1fr);
+    /* grid-template-rows: repeat(auto-fill, 1fr); */
     justify-items: center;
 }
 
 .grid-img{
-    object-fit: cover
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
 }

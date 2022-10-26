@@ -1,13 +1,18 @@
 'use strict'
 
 function renderGallery() {
-    const elGallery = document.querySelector('.gallery-area')
-    const galleryImages = getGalleryImage()
+    const galleryImages = getGalleryImages()
     let imgsStr = ``
-    galleryImages.forEach((imgUrl, idx) => {
+    galleryImages.forEach((img) => {
         imgsStr += `
-        <img src="${imgUrl}" class="grid-img img${idx}" alt="">
+        <img src="${img.url}"  onclick="onImgSelect(${img.id})" class="grid-img img${img.id}" alt="">
         `
     })
-    elGallery.innerHTML += imgsStr
+    gElGallery.innerHTML += imgsStr
 }
+
+function onImgSelect(imgid){
+    setImg(imgid)
+    renderMeme()
+}
+
