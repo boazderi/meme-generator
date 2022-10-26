@@ -2,6 +2,7 @@
 
 const gElGallery = document.querySelector('.gallery-area')
 const gElMemeEditor = document.querySelector('.meme-editor')
+let gLastMemeId
 
 function onInit(){
     console.log('start init');
@@ -14,16 +15,21 @@ function renderMeme(){
     document.querySelector('.images-gallery').classList.add('hide')
     gElMemeEditor.classList.remove('hide')
     const currMeme = getMeme() 
+    const txtPos = currMeme.lines[gMeme.selectedLineIdx].position
     const currMemeImgPath = gImgs.find(img => img.id === currMeme.selectedImgId).url
-    const currMemeTxt = currMeme.lines[0].txt
-    drawImgAndTxt(currMemeImgPath, currMemeTxt, 30, 50)
+    const currMemeTxt = currMeme.lines[gMeme.selectedLineIdx].txt
+    drawItem({img: currMemeImgPath})
+    // drawItem({txt: {currMemeTxt, x: txtPos.x, y: txtPos.y}})
 }
 
 
+
 function onTxtInput(txt){
-    console.log('txt',txt);
     setLineTxt(txt)
-    renderMeme()
+    const currMeme = getMeme() 
+    const txtPos = currMeme.lines[gMeme.selectedLineIdx].position
+    const currMemeTxt = currMeme.lines[gMeme.selectedLineIdx].txt
+    drawItem({txt: {currMemeTxt, x: txtPos.x, y: txtPos.y}})
 }
 
 function onSetColor(color){
@@ -33,4 +39,8 @@ function onSetColor(color){
 
 function onChangeFontSize(num){
     setFontSize(num)
+}
+
+function onAddLine(){
+    addTextLine()
 }

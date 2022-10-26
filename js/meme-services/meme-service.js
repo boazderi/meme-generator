@@ -29,7 +29,7 @@ function createSqureImgs() {
     for (var i = 1; i < 19; i++) {
         gImgs.push({
             id: i,
-            url: `../img/meme-imgs (square)/${i}.jpg`,
+            url: `./img/meme-imgs (square)/${i}.jpg`,
             keywords: gKeyWords[i - 1]
         })
     }
@@ -39,14 +39,13 @@ function createSqureImgs() {
 var gMeme = {
     selectedImgId: 5,
     selectedLineIdx: 0,
-    lines: [
-        {
+    lines: [{
             txt: 'FAKE NEWS!!!',
             size: 30,
             align: 'center',
-            color: 'black'
-        }
-    ]
+            color: 'black',
+            position: {x: 60, y: 30}
+        }]
 }
 
 function getMeme(id) {
@@ -54,7 +53,7 @@ function getMeme(id) {
 }
 
 function setLineTxt(text) {
-    gMeme.lines[0].txt = text
+    gMeme.lines[gMeme.selectedLineIdx].txt = text
 }
 
 
@@ -68,11 +67,24 @@ function setImg(imgid) {
 }
 
 function setColor(newColor) {
-    console.log('newColor', newColor);
-    gMeme.lines[0].color = newColor
+    gMeme.lines[gMeme.selectedLineIdx].color = newColor
     console.log('gMeme', gMeme);
 }
 
 function setFontSize(num) {
-    gMeme.lines[0].size += num
+    gMeme.lines[gMeme.selectedLineIdx].size += num
+}
+
+function addTextLine(){
+    gMeme.lines.push(
+        {     
+        txt: '',
+        size: 30,
+        align: 'center',
+        color: 'black',
+        position: {}
+    }
+    )
+    gMeme.selectedLineIdx++
+    gMeme.lines[gMeme.selectedLineIdx].position = {x: 30, y: gElCanvas.height - 60}
 }
