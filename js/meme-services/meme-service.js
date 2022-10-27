@@ -56,7 +56,7 @@ var gMeme = {
         size: 30,
         align: 'center',
         color: 'black',
-        heightLine: 50,
+        heightLine: 20,
         fontFamily: 'Arial'
     }]
 }
@@ -96,7 +96,7 @@ function addTextLine() {
             size: 30,
             align: 'center',
             color: 'black',
-            heightLine: gElCanvas.height - 50
+            heightLine: gElCanvas.height - 20
         }
     )
     gMeme.selectedLineIdx++

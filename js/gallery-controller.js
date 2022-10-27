@@ -13,7 +13,6 @@ function renderGallery() {
         `
     })
     gElPictures.innerHTML += imgsStr
-    
 }
 
 function onImgSelect(imgId){
