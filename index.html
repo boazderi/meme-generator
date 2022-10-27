@@ -14,18 +14,18 @@
         <nav class="nav-bar flex align-items-center justify-between head">
             <div class="logo nav-area">Boaz Meme generator </div>
             <div class="links flex nav-area justify-evenly">
-                <div class="gallery-btn" onclick="onGalleryClicked()" >Gallery</div>
-                <div class="about-link">About</div>
+                <div class="head-btn gallery-btn" onclick="onGalleryClicked()" >Gallery</div>
+                <div class="head-btn about-link">About</div>
             </div>
         </nav>
     </header>
-    <section class="main-container meme-editor flex hide justify-evenly align-items-center">
-        <canvas class="edit-item canvas-container" id="canvas" height="500px" width="500px">
+    <section class="meme-editor-container flex hide justify-evenly align-items-center">
+        <canvas class="edit-item canvas-container" id="canvas" >
         </canvas>
         <div class="edit-item flex flex-column align-items-center justify-evenly edit-section">
             <input class="text-editor-input" type="text" oninput="onTxtInput(this.value)" placeholder="Edit text here">
             <div class="update-text-stracture flex">
-                <button class="switch-lines" onclick="onSwitchLines()">
+                <button class="switch-lines " onclick="onSwitchLines()">
                     <img src="img/ICONS/up-and-down-opposite-double-arrows-side-by-side.png" class="style-icon"
                         width="40px">
                 </button>
@@ -33,26 +33,21 @@
                     <img src="./img/ICONS/add.png" class="style-icon" width="40px">
                 </button>
             </div>
-            <div class="text-style-editor flex justify-evenly">
+            <div class="text-style-editor grid">
                 <label>
-                    <img src="./img/ICONS/increase font - icon.png" onclick="onChangeFontSize(1)" class="style-icon"
-                    width="40px">
+                    <img src="./img/ICONS/increase font - icon.png" onclick="onChangeFontSize(1)" class="style-icon">
                 </label>
                 <label>
-                    <img src="./img/ICONS/decrease font - icon.png" onclick="onChangeFontSize(-1)" class="style-icon"
-                    width="40px">
+                    <img src="./img/ICONS/decrease font - icon.png" onclick="onChangeFontSize(-1)" class="style-icon">
                 </label>
                 <label>
-                    <img src="./img/ICONS/align-to-left.png" onclick="onAlignText('left')" class="style-icon"
-                    width="40px">
+                    <img src="./img/ICONS/align-to-left.png" onclick="onAlignText('left')" class="style-icon">
                 </label>
                 <label>
-                    <img src="./img/ICONS/center-text-alignment.png" onclick="onAlignText('center')" class="style-icon"
-                    width="40px">
+                    <img src="./img/ICONS/center-text-alignment.png" onclick="onAlignText('center')" class="style-icon">
                 </label>
                 <label>
-                    <img src="./img/ICONS/align-to-right.png" onclick="onAlignText('right')" class="style-icon"
-                    width="40px">
+                    <img src="./img/ICONS/align-to-right.png" onclick="onAlignText('right')" class="style-icon">
                 </label>
                 <label>
                     <img src="./img/ICONS/paint-board-and-brush.png" class="style-icon" width="40px">
@@ -62,11 +57,16 @@
             </div>
         </div>
     </section>
-    <section class="main-container images-gallery align-items-center  flex justify-evenly flex-column">
-        <div class="gallery-item menu-area flex justify-evenly">
-            <input class="menu-area-item search-photo-input" type="search" placeholder="searce">
-            <div class="menu-area-item choose-from-txt"> a lot of text comes here in white</div>
-            <button class="menu-area-item ">More</button>
+    <section class="main-container images-gallery align-items-center flex flex-column">
+        <div class="gallery-item menu-area flex flex-column justify-between align-items-center">
+            <div class="menu-first-section flex align-items-center">
+                <input class="menu-area-item search-photo-input" type="search" placeholder="searce">
+            </div>
+            <div class="menu-second-section flex align-items-center justify-between">
+                <div class="menu-area-item choose-from-txt"> a lot of text comes here in white</div>
+                <button class="menu-area-item more-btn">More</button>
+            </div>
+            
         </div>
         <div class="gallery-item gallery-area grid">
         </div>
@@ -75,12 +75,12 @@
     <footer>
     </footer>
 
-    <script src="/js/services/utils.js"></script>
-    <script src="/js/services/storage-service.js"></script>
-    <script src="/js/meme-services/meme-service.js"></script>
-    <script src="/js/meme-services/meme-canvas-service.js"></script>
-    <script src="/js/meme-controller.js"></script>
-    <script src="/js/gallery-controller.js"></script>
+    <script src="./js/services/utils.js"></script>
+    <script src="./js/services/storage-service.js"></script>
+    <script src="./js/meme-services/meme-service.js"></script>
+    <script src="./js/meme-services/meme-canvas-service.js"></script>
+    <script src="./js/meme-controller.js"></script>
+    <script src="./js/gallery-controller.js"></script>
 </body>
 
 </html>

@@ -1,7 +1,7 @@
 'use strict'
 
 
-const gElMemeEditor = document.querySelector('.meme-editor')
+const gElMemeEditor = document.querySelector('.meme-editor-container')
 let gLastMemeId
 
 function onInit(){
@@ -17,7 +17,6 @@ function renderMeme(){
     gElMemeEditor.classList.remove('hide')
     edditorStatus.gMemeStatus = true
     const currMeme = getMeme() 
-    const txtPos = currMeme.lines[gMeme.selectedLineIdx].position
     const currMemeImgPath = gImgs.find(img => img.id === currMeme.selectedImgId).url
     const currMemeTxt = currMeme.lines[gMeme.selectedLineIdx].txt
     drawImgAndTxt(currMemeImgPath, currMemeTxt)
