@@ -12,6 +12,11 @@
 }
 
 /* TYPOGRAPHY */
+@font-face {
+    font-family: 'FuzzyBubbles-Bold';
+    src: url(/fonts/Handwriting/FuzzyBubbles-Bold.ttf);
+}
+
 
 /* BASICS */
 
@@ -65,11 +70,18 @@ body {
     height: 75px;
     background: linear-gradient(90deg, var(--clr-1), var(--clr-2));
     border-radius: 50px;
+    color: white;
+    font-family: FuzzyBubbles-Bold;
 }
 
 .logo {
     font-size: 36px;
     padding-left: 10%;
+}
+
+.gallery-btn{
+    background:fixed;
+    border: 0;
 }
 
 .nav-area {
@@ -124,6 +136,7 @@ body {
     border-radius: 10px;
     border: 0;
     background-color: white;
+    box-shadow: 0px 3px 5px 0px rgb(82, 82, 82);
 }
 
 

@@ -3,55 +3,42 @@
 let gElCanvas
 let gCtx
 let gCurrShape
-
+let gStartLinePos
 
 function initCanvas() {
     gElCanvas = document.querySelector('.canvas-container')
     gCtx = gElCanvas.getContext('2d')
-}
-
-
-
-function drawItem(itemDetails) {
-    const drawKey = Object.keys(itemDetails)[0]
-    console.log('drawKey', drawKey)
-    switch (drawKey) {
-        case 'img':
-            drawImg(itemDetails[drawKey])
-            break;
-        case 'txt':
-            let memeTxt = itemDetails[drawKey].currMemeTxt
-            let x = itemDetails[drawKey].x
-            let y = itemDetails[drawKey].y
-            drawTxt(memeTxt, x, y)
-            break;
-        case 'img':
-            drawImg(itemDetails[drawKey])
-            break;
-
-        default:
-            break;
+    gStartLinePos = {
+        left: 50,
+        center: gElCanvas.width / 2,
+        right: gElCanvas.width - 50
     }
-
 }
 
-function drawImg(imgUrl) {
+
+function drawImgAndTxt(imgUrl) {
     const img = new Image()
     img.src = imgUrl
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
+        drawTxt()
     }
 }
 
 
-function drawTxt(memeTxt, x, y) {
-    console.log('memeTxt', memeTxt);
-    gCtx.
-    gCtx.lineWidth = 2
-    gCtx.strokeStyle = gMeme.lines[gMeme.selectedLineIdx].color
-    gCtx.fillStyle = gMeme.lines[gMeme.selectedLineIdx].color
-    gCtx.font = `${gMeme.lines[gMeme.selectedLineIdx].size}px Arial`
-    gCtx.fillText(memeTxt, x, y)
-    gCtx.strokeText(memeTxt, x, y)
+function drawTxt() {
+    console.log('start draw');
+    gMeme.lines.forEach(line => {
+        const memeTxt = line.txt
+        const y = line.heightLine
+        const x = gStartLinePos[line.align]
+        gCtx.textAlign = line.align
+        gCtx.lineWidth = 2
+        gCtx.strokeStyle = gMeme.lines[gMeme.selectedLineIdx].color
+        gCtx.fillStyle = gMeme.lines[gMeme.selectedLineIdx].color
+        gCtx.font = `${gMeme.lines[gMeme.selectedLineIdx].size}px Arial`
+        gCtx.fillText(memeTxt, x, y)
+        gCtx.strokeText(memeTxt, x, y)
+    }
+    )
 }
-

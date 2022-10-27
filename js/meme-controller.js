@@ -1,6 +1,6 @@
 'use strict'
 
-const gElGallery = document.querySelector('.gallery-area')
+
 const gElMemeEditor = document.querySelector('.meme-editor')
 let gLastMemeId
 
@@ -12,24 +12,26 @@ function onInit(){
 
 function renderMeme(){
     console.log('start render');
-    document.querySelector('.images-gallery').classList.add('hide')
+    gElGallery.classList.add('hide')
+    edditorStatus.gGalleryIsOn = false
     gElMemeEditor.classList.remove('hide')
+    edditorStatus.gMemeStatus = true
     const currMeme = getMeme() 
     const txtPos = currMeme.lines[gMeme.selectedLineIdx].position
     const currMemeImgPath = gImgs.find(img => img.id === currMeme.selectedImgId).url
     const currMemeTxt = currMeme.lines[gMeme.selectedLineIdx].txt
-    drawItem({img: currMemeImgPath})
-    // drawItem({txt: {currMemeTxt, x: txtPos.x, y: txtPos.y}})
+    drawImgAndTxt(currMemeImgPath, currMemeTxt)
 }
 
 
 
 function onTxtInput(txt){
     setLineTxt(txt)
-    const currMeme = getMeme() 
-    const txtPos = currMeme.lines[gMeme.selectedLineIdx].position
-    const currMemeTxt = currMeme.lines[gMeme.selectedLineIdx].txt
-    drawItem({txt: {currMemeTxt, x: txtPos.x, y: txtPos.y}})
+    renderMeme()
+    // const currMeme = getMeme() 
+    // const txtPos = currMeme.lines[gMeme.selectedLineIdx].position
+    // const currMemeTxt = currMeme.lines[gMeme.selectedLineIdx].txt
+    // drawItem({txt: {currMemeTxt, x: txtPos.x, y: txtPos.y}})
 }
 
 function onSetColor(color){
@@ -43,4 +45,13 @@ function onChangeFontSize(num){
 
 function onAddLine(){
     addTextLine()
+}
+
+function onSwitchLines(){
+    switchLines()
+    renderMeme()
+}
+
+function onAlignText(direction){
+    setAlignTxt(direction)
 }

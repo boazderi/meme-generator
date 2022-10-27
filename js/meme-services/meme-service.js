@@ -23,6 +23,13 @@ var gKeyWords = [
 ]
 var gImgs = []
 
+let edditorStatus = {
+    gGalleryIsOn: true,
+    gMemeStatus: false
+}
+
+
+
 createSqureImgs()
 
 function createSqureImgs() {
@@ -40,12 +47,12 @@ var gMeme = {
     selectedImgId: 5,
     selectedLineIdx: 0,
     lines: [{
-            txt: 'FAKE NEWS!!!',
-            size: 30,
-            align: 'center',
-            color: 'black',
-            position: {x: 60, y: 30}
-        }]
+        txt: 'FAKE NEWS!!!',
+        size: 30,
+        align: 'center',
+        color: 'black',
+        heightLine: 50,
+    }]
 }
 
 function getMeme(id) {
@@ -75,16 +82,25 @@ function setFontSize(num) {
     gMeme.lines[gMeme.selectedLineIdx].size += num
 }
 
-function addTextLine(){
+function addTextLine() {
+    if (gMeme.lines.length > 1) return
     gMeme.lines.push(
-        {     
-        txt: '',
-        size: 30,
-        align: 'center',
-        color: 'black',
-        position: {}
-    }
+        {
+            txt: '',
+            size: 30,
+            align: 'center',
+            color: 'black',
+            heightLine: gElCanvas.height - 50
+        }
     )
     gMeme.selectedLineIdx++
-    gMeme.lines[gMeme.selectedLineIdx].position = {x: 30, y: gElCanvas.height - 60}
+}
+
+
+function switchLines(){
+    [gMeme.lines[0], gMeme.lines[1]] = [gMeme.lines[1], gMeme.lines[0]]
+}
+
+function setAlignTxt(direction){
+    gMeme.lines[gMeme.selectedLineIdx].align = direction
 }

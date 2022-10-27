@@ -14,39 +14,51 @@
         <nav class="nav-bar flex align-items-center justify-between head">
             <div class="logo nav-area">Boaz Meme generator </div>
             <div class="links flex nav-area justify-evenly">
-                <div class="gallery-link"> Gallery</div>
-                <div class="about-link"> About</div>
+                <div class="gallery-btn" onclick="onGalleryClicked()" >Gallery</div>
+                <div class="about-link">About</div>
             </div>
         </nav>
     </header>
     <section class="main-container meme-editor flex hide justify-evenly align-items-center">
         <canvas class="edit-item canvas-container" id="canvas" height="500px" width="500px">
-
         </canvas>
         <div class="edit-item flex flex-column align-items-center justify-evenly edit-section">
             <input class="text-editor-input" type="text" oninput="onTxtInput(this.value)" placeholder="Edit text here">
             <div class="update-text-stracture flex">
-                <button class="switch-line">
-                    <img src="../img/ICONS/up-and-down-opposite-double-arrows-side-by-side.png" class="style-icon"
+                <button class="switch-lines" onclick="onSwitchLines()">
+                    <img src="img/ICONS/up-and-down-opposite-double-arrows-side-by-side.png" class="style-icon"
                         width="40px">
                 </button>
                 <button class="add-line" onclick="onAddLine()">
-                    <img src="../img/ICONS/add.png" class="style-icon" width="40px">
+                    <img src="./img/ICONS/add.png" class="style-icon" width="40px">
                 </button>
             </div>
-            <div class="text-style-editor">
+            <div class="text-style-editor flex justify-evenly">
                 <label>
-                    <img src="../img/ICONS/paint-board-and-brush.png" class="style-icon" width="40px">
+                    <img src="./img/ICONS/increase font - icon.png" onclick="onChangeFontSize(1)" class="style-icon"
+                    width="40px">
+                </label>
+                <label>
+                    <img src="./img/ICONS/decrease font - icon.png" onclick="onChangeFontSize(-1)" class="style-icon"
+                    width="40px">
+                </label>
+                <label>
+                    <img src="./img/ICONS/align-to-left.png" onclick="onAlignText('left')" class="style-icon"
+                    width="40px">
+                </label>
+                <label>
+                    <img src="./img/ICONS/center-text-alignment.png" onclick="onAlignText('center')" class="style-icon"
+                    width="40px">
+                </label>
+                <label>
+                    <img src="./img/ICONS/align-to-right.png" onclick="onAlignText('right')" class="style-icon"
+                    width="40px">
+                </label>
+                <label>
+                    <img src="./img/ICONS/paint-board-and-brush.png" class="style-icon" width="40px">
                     <input type="color" name="color" style="display: none;" onchange="onSetColor(this.value)">
                 </label>
-                <label>
-                    <img src="../img/ICONS/increase font - icon.png" onclick="onChangeFontSize(1)" class="style-icon"
-                        width="40px">
-                </label>
-                <label>
-                    <img src="../img/ICONS/decrease font - icon.png" onclick="onChangeFontSize(-1)" class="style-icon"
-                        width="40px">
-                </label>
+                
             </div>
         </div>
     </section>
