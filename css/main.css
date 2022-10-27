@@ -13,7 +13,7 @@
 /* TYPOGRAPHY */
 @font-face {
     font-family: 'FuzzyBubbles-Bold';
-    src: url(/fonts/Handwriting/FuzzyBubbles-Bold.ttf);
+    src: url(./fonts/Handwriting/FuzzyBubbles-Bold.ttf);
 }
 
 html {
@@ -335,5 +335,5 @@ body {
         border-radius: 30px;   
     }
 
-    
+
 }
