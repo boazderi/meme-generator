@@ -56,7 +56,7 @@ var gMeme = {
         size: 30,
         align: 'center',
         color: 'black',
-        heightLine: 20,
+        heightLine: 30,
         fontFamily: 'Arial'
     }]
 }

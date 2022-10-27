@@ -34,7 +34,7 @@ function drawTxt() {
         const x = gStartLinePos[line.align]
         gCtx.textAlign = line.align
         gCtx.lineWidth = 2
-        gCtx.strokeStyle = gMeme.lines[gMeme.selectedLineIdx].color
+        gCtx.strokeStyle = "black"
         gCtx.fillStyle = gMeme.lines[gMeme.selectedLineIdx].color
         gCtx.font = `${gMeme.lines[gMeme.selectedLineIdx].size}px ${gMeme.lines[gMeme.selectedLineIdx].fontFamily}`
         console.log('gMeme',gMeme);
