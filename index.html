@@ -12,7 +12,7 @@
 <body class="flex flex-column justify-between align-items-center" onload="onInit()">
     <header class="head">
         <nav class="nav-bar flex align-items-center justify-between head">
-            <div class="logo nav-area">Boaz Meme generator </div>
+            <div class="logo nav-area">Boaz Meme generator</div>
             <div class="links flex nav-area justify-evenly">
                 <div class="head-btn gallery-btn" onclick="onGalleryClicked()" >Gallery</div>
                 <div class="head-btn about-link">About</div>
@@ -24,43 +24,61 @@
         </canvas>
         <div class="edit-item flex flex-column align-items-center justify-evenly edit-section">
             <input class="text-editor-input" type="text" oninput="onTxtInput(this.value)" placeholder="Edit text here">
-            <div class="update-text-stracture flex">
-                <button class="switch-lines " onclick="onSwitchLines()">
-                    <img src="img/ICONS/up-and-down-opposite-double-arrows-side-by-side.png" class="style-icon"
-                        width="40px">
+            <div class="update-text-stracture-btns flex justify-evenly">
+                <button class="text-stracture-btn switch-lines " onclick="onSwitchLines()">
+                    <img src="img/ICONS/up-and-down-opposite-double-arrows-side-by-side.png" class="text-stracture-icon">
                 </button>
-                <button class="add-line" onclick="onAddLine()">
-                    <img src="./img/ICONS/add.png" class="style-icon" width="40px">
+                <button class="text-stracture-btn add-line" onclick="onAddLine()">
+                    <img src="./img/ICONS/add.png" class="text-stracture-icon">
                 </button>
+                <button class="text-stracture-btn delete-meme" onclick="onDeleteMeme()">
+                    <img src="./img/ICONS/trash.png" class="text-stracture-icon">
+                </button>
+
             </div>
             <div class="text-style-editor grid">
-                <label>
+                <label class="label-style-icon">
                     <img src="./img/ICONS/increase font - icon.png" onclick="onChangeFontSize(1)" class="style-icon">
                 </label>
-                <label>
+                <label class="label-style-icon">
                     <img src="./img/ICONS/decrease font - icon.png" onclick="onChangeFontSize(-1)" class="style-icon">
                 </label>
-                <label>
+                <label class="label-style-icon">
                     <img src="./img/ICONS/align-to-left.png" onclick="onAlignText('left')" class="style-icon">
                 </label>
-                <label>
+                <label class="label-style-icon">
                     <img src="./img/ICONS/center-text-alignment.png" onclick="onAlignText('center')" class="style-icon">
                 </label>
-                <label>
+                <label class="label-style-icon">
                     <img src="./img/ICONS/align-to-right.png" onclick="onAlignText('right')" class="style-icon">
                 </label>
-                <label>
-                    <img src="./img/ICONS/paint-board-and-brush.png" class="style-icon" width="40px">
+                <select name="font" class="fonts" onchange="onChangeFont(this.value)">
+                    <option value="Helvetica Neue">Helvetica Neue</option>
+                    <option value="Helvetica">Helvetica</option>
+                    <option value="Arial">Arial</option>
+                    <option value="Sans-Serif">Sans-Serif</option>
+                </select>
+                <label class="label-style-icon">
+                    <img src="./img/ICONS/paint-board-and-brush.png" class="style-icon">
                     <input type="color" name="color" style="display: none;" onchange="onSetColor(this.value)">
                 </label>
-                
             </div>
+            <div class="share-download flex justify-evenly">
+                <button class="share-btn bottom-btn" onclick="uploadImgToFacebook()">
+                    <img src="./img/newIcons/Forme_7.png" class="text-stracture-icon"> Share
+                </button>
+                <a href="" class="download-btn bottom-btn" onclick="downloadCanvas(this)" download="my paint">
+                    <img src="./img/newIcons/Forme_8.png" class="text-stracture-icon"> Download
+                </a>
+            </div>
+            <div class="user-msg"></div>
+            <div class="share-container"></div>
         </div>
     </section>
     <section class="main-container images-gallery align-items-center flex flex-column">
         <div class="gallery-item menu-area flex flex-column justify-between align-items-center">
             <div class="menu-first-section flex align-items-center">
-                <input class="menu-area-item search-photo-input" type="search" placeholder="searce">
+                <input class="menu-area-item search-photo-input" type="search" placeholder="search">
             </div>
             <div class="menu-second-section flex align-items-center justify-between">
                 <div class="menu-area-item choose-from-txt"> a lot of text comes here in white</div>

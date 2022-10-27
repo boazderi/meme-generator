@@ -28,7 +28,12 @@ let edditorStatus = {
     gMemeStatus: false
 }
 
-
+const gFonts = [
+    'Helvetica Neue',
+    'Helvetica',
+    'Arial',
+    'Sans-Serif'
+]
 
 createSqureImgs()
 
@@ -52,6 +57,7 @@ var gMeme = {
         align: 'center',
         color: 'black',
         heightLine: 50,
+        fontFamily: 'Arial'
     }]
 }
 
@@ -98,9 +104,16 @@ function addTextLine() {
 
 
 function switchLines(){
+    if(gMeme.lines.length === 1) return
     [gMeme.lines[0], gMeme.lines[1]] = [gMeme.lines[1], gMeme.lines[0]]
 }
 
 function setAlignTxt(direction){
     gMeme.lines[gMeme.selectedLineIdx].align = direction
+}
+
+
+function setFontStyle(fontName){
+    console.log('fontName',fontName);
+    gMeme.lines[gMeme.selectedLineIdx].fontFamily = fontName
 }
