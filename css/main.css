@@ -111,7 +111,7 @@ body {
 /* meme editor */
 
 .meme-editor-container {
-    flex-direction: column-reverse;
+    flex-direction: column;
     height: 120vh;
     justify-content: space-evenly;
 }
@@ -150,15 +150,15 @@ body {
 }
 
 .switch-lines{
-    background-color: rgb(47, 168, 209);
+    background: linear-gradient(rgb(73, 208, 253), rgb(0, 64, 255)) ;
 }
 
 .add-line{
-    background-color: #31bc72;
+    background: linear-gradient(#3ddb72, rgb(0, 114, 0));
 }
 
 .delete-meme{
-    background-color: rgb(198, 50, 48);
+    background: linear-gradient(rgb(246, 101, 98), rgb(156, 0, 0));
 }
 
 .style-icon {
@@ -179,7 +179,7 @@ body {
     "down-left-btn down-middle down-right"
     ;
     width: 100%;
-    height: 30%;
+    height: 40%;
     background-color: #17a5a0;
     border-radius: 30px;   
 }
@@ -267,8 +267,8 @@ body {
 
 
 .canvas-container {
-    width: 100%;
-    height: 100%;
+    width: 350px;
+    height: 350px;
 }
 
 .hide {
@@ -342,6 +342,8 @@ body {
     height: 100%;
     object-fit: cover;
     border-radius: 10px;
+    box-shadow: 1px 3px 4px 2px rgb(182, 182, 182);
+
 }
 
 /* SMALL */
@@ -361,8 +363,8 @@ body {
         width: 100%;
     }
     .canvas-container {
-        width: 80%;
-        height: 50vh;
+        width: 400px;
+        height: 400px;
     }
     
     .edit-section{
@@ -472,7 +474,7 @@ body {
         height: 500px;
     }
 
-    .edit-item {
+    .edit-section {
         height: 100%;
         width: 45%;
         background-color: #373b41;

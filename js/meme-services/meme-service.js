@@ -22,6 +22,7 @@ var gKeyWords = [
     ['toy story'],
 ]
 var gImgs = []
+let gCurrColor
 
 let edditorStatus = {
     gGalleryIsOn: true,
@@ -29,6 +30,7 @@ let edditorStatus = {
 }
 
 const gFonts = [
+    'Impact',
     'Helvetica Neue',
     'Helvetica',
     'Arial',
@@ -57,7 +59,7 @@ var gMeme = {
         align: 'center',
         color: 'black',
         heightLine: 30,
-        fontFamily: 'Arial'
+        fontFamily: 'Impact'
     }]
 }
 
@@ -79,9 +81,13 @@ function setImg(imgid) {
     gMeme.selectedImgId = imgid
 }
 
+// function setColor(newColor) {
+//     gCurrColor = newColor
+//     gMeme.lines[gMeme.selectedLineIdx].color = gCurrColor
+// }
+
 function setColor(newColor) {
     gMeme.lines[gMeme.selectedLineIdx].color = newColor
-    console.log('gMeme', gMeme);
 }
 
 function setFontSize(num) {
@@ -95,7 +101,7 @@ function addTextLine() {
             txt: '',
             size: 30,
             align: 'center',
-            color: 'black',
+            color: gCurrColor,
             heightLine: gElCanvas.height - 20
         }
     )
@@ -114,6 +120,5 @@ function setAlignTxt(direction){
 
 
 function setFontStyle(fontName){
-    console.log('fontName',fontName);
     gMeme.lines[gMeme.selectedLineIdx].fontFamily = fontName
 }

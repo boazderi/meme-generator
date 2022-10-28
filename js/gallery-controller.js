@@ -21,10 +21,10 @@ function onImgSelect(imgId){
 }
 
 function onGalleryClicked(){
-    if (edditorStatus.gGalleryIsOn) return
-    gElGallery.classList.remove('hide')
-    edditorStatus.gGalleryIsOn = true
-    gElMemeEditor.classList.add('hide')
-    edditorStatus.gMemeStatus = false
-    renderGallery()
+    if (!edditorStatus.gGalleryIsOn) {
+        edditorStatus.gGalleryIsOn = true
+        gElGallery.classList.remove('hide')
+        gElMemeEditor.classList.add('hide')
+        edditorStatus.gMemeStatus = false
+    } 
 }

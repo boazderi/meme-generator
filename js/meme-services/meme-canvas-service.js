@@ -33,14 +33,13 @@ function drawTxt() {
         const y = line.heightLine
         const x = gStartLinePos[line.align]
         gCtx.textAlign = line.align
-        gCtx.lineWidth = 2
-        gCtx.strokeStyle = "black"
-        gCtx.fillStyle = gMeme.lines[gMeme.selectedLineIdx].color
-        gCtx.font = `${gMeme.lines[gMeme.selectedLineIdx].size}px ${gMeme.lines[gMeme.selectedLineIdx].fontFamily}`
+        gCtx.lineWidth = 1
+        gCtx.strokeStyle = "white"
+        gCtx.fillStyle = line.color
+        gCtx.font = `${line.size}px ${line.fontFamily}`
         console.log('gMeme',gMeme);
         gCtx.fillText(memeTxt, x, y)
         gCtx.strokeText(memeTxt, x, y)
-        gCtx.save()
     }
     )
 }

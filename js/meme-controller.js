@@ -119,3 +119,7 @@ function onChangeFont(fontName){
     console.log('fontName',fontName);
     setFontStyle(fontName)
 }
+
+function onRandomImage(){
+    
+}

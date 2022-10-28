@@ -22,46 +22,48 @@
         </nav>
     </header>
     <section class="meme-editor-container flex hide justify-evenly align-items-center">
-        <canvas class="edit-item canvas-container" id="canvas" >
+        <!-- <canvas class="edit-item canvas-container" id="canvas" >
+        </canvas> -->
+        <canvas class="edit-item canvas-container" width="400" height="400" id="canvas" >
         </canvas>
         <div class="edit-item flex flex-column align-items-center justify-evenly edit-section">
             <input class="text-editor-input" type="text" oninput="onTxtInput(this.value)" placeholder="Edit text here">
             <div class="update-text-stracture-btns flex justify-evenly">
                 <button class="text-stracture-btn switch-lines " onclick="onSwitchLines()">
-                    <img src="img/ICONS/up-and-down-opposite-double-arrows-side-by-side.png" class="text-stracture-icon">
+                    <img src="img/ICONS/up-and-down-arrows.png" class="text-stracture-icon">
                 </button>
                 <button class="text-stracture-btn add-line" onclick="onAddLine()">
-                    <img src="./img/ICONS/add.png" class="text-stracture-icon">
+                    <img src="./img/ICONS/add-button.png" class="text-stracture-icon">
                 </button>
                 <button class="text-stracture-btn delete-meme" onclick="onDeleteMeme()">
-                    <img src="./img/ICONS/trash.png" class="text-stracture-icon">
+                    <img src="./img/ICONS/bin.png" class="text-stracture-icon">
                 </button>
-
             </div>
             <div class="text-style-editor grid">
                 <label class="label-style-icon increase-font">
-                    <img src="./img/ICONS/increase font - icon.png" onclick="onChangeFontSize(1)" class="style-icon">
+                    <img src="./img/ICONS/increase-font-size.png" onclick="onChangeFontSize(1)" class="style-icon">
                 </label>
                 <label class="label-style-icon decrease-font">
-                    <img src="./img/ICONS/decrease font - icon.png" onclick="onChangeFontSize(-1)" class="style-icon">
+                    <img src="./img/ICONS/decrease-font-size.png" onclick="onChangeFontSize(-1)" class="style-icon">
                 </label>
                 <label class="label-style-icon align-to-left">
-                    <img src="./img/ICONS/align-to-left.png" onclick="onAlignText('left')" class="style-icon">
+                    <img src="./img/ICONS/left-align.png" onclick="onAlignText('left')" class="style-icon">
                 </label>
                 <label class="label-style-icon align-center">
-                    <img src="./img/ICONS/center-text-alignment.png" onclick="onAlignText('center')" class="style-icon">
+                    <img src="./img/ICONS/center-align.png" onclick="onAlignText('center')" class="style-icon">
                 </label>
                 <label class="label-style-icon align-to-right">
-                    <img src="./img/ICONS/align-to-right.png" onclick="onAlignText('right')" class="style-icon">
+                    <img src="./img/ICONS/right-align.png" onclick="onAlignText('right')" class="style-icon">
                 </label>
                 <select name="font" class="fonts" onchange="onChangeFont(this.value)">
+                    <option value="Impact">Impact</option>
                     <option value="Helvetica Neue">Helvetica Neue</option>
                     <option value="Helvetica">Helvetica</option>
                     <option value="Arial">Arial</option>
                     <option value="Sans-Serif">Sans-Serif</option>
                 </select>
                 <label class="label-style-icon">
-                    <img src="./img/ICONS/paint-board-and-brush.png" class="style-icon">
+                    <img src="./img/ICONS/palette.png" class="style-icon">
                     <input type="color" name="color" style="display: none;" onchange="onSetColor(this.value)">
                 </label>
             </div>
@@ -80,12 +82,12 @@
     <section class="main-container images-gallery align-items-center flex flex-column">
         <div class="gallery-item menu-area flex flex-column justify-between align-items-center">
             <div class="menu-first-section flex align-items-center">
-                <input class="menu-area-item search-photo-input" type="search" placeholder="search">
+                <input class="menu-area-item search-photo-input" type="search" placeholder="search" >
             </div>
             <div class="menu-second-section flex align-items-center justify-between">
                 <div class="menu-area-item choose-from-txt"> a lot of text comes here in white</div>
                 <button class="menu-area-item more-btn">More</button>
-                <button class="menu-area-item" onclick="">Im flexible!</button>
+                <button class="menu-area-item" onclick="onRandomImage()">Im flexible!</button>
             </div>
             
         </div>
