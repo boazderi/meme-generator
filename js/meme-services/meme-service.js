@@ -27,6 +27,8 @@ let edditorStatus = {
     gMemeStatus: false
 }
 
+const gMemesSaved = []
+
 const gFonts = [
     'Impact',
     'Helvetica Neue',
@@ -62,7 +64,7 @@ var gMeme = {
     selectedImgId: 5,
     selectedLineIdx: 0,
     lines: [{
-        txt: 'FAKE NEWS!!!',
+        txt: '',
         size: 30,
         align: 'center',
         color: 'black',
@@ -72,7 +74,9 @@ var gMeme = {
     }]
 }
 
-function getMeme(id) {
+function getMeme() {
+    // setLineTxt(gKeyWords[gMeme.selectedImgId - 1])
+    // gMeme.lines[selectedLineIdx].txt = gKeyWords[gMeme.selectedImgId]
     return gMeme
 }
 
@@ -86,8 +90,8 @@ function getGalleryImages() {
 }
 
 
-function setImg(imgid) {
-    gMeme.selectedImgId = imgid
+function setImg(imgId) {
+    gMeme.selectedImgId = imgId
 }
 
 function setColor(newColor) {
@@ -138,4 +142,14 @@ function getFilteredImgs(key){
        return imgData.keywords.some(word => word.includes(key))
     })
     return filteredImgs
+}
+
+function saveMemeToStorage(){
+    gMemesSaved.push(gElCanvas.toDataURL())
+    saveToStorage(`savedMemes`, gMemesSaved)
+}
+
+function getSavedMemes(){
+    const currMemes = loadFromStorage('savedMemes')
+    return currMemes
 }

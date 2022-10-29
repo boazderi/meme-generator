@@ -53,3 +53,11 @@ function onSetFilterByKey(key, ev){
     gFilter = key
     renderGallery()
 }
+
+
+function getRandomImage(){
+    console.log('find random image');
+    const image = gImgs[getRandomIntInclusive(0, gImgs.length - 1)]
+    console.log('image',image);
+    onImgSelect(image.id)
+}

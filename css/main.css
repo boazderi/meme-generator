@@ -68,10 +68,9 @@ body {
 
 /* Header */
 .head {
-    width: 95%;
+    width: 100%;
     height: 75px;
     background: linear-gradient(90deg, var(--clr-1), var(--clr-2));
-    border-radius: 50px;
     font-size: 1.5rem;
     color: white;
     font-family: FuzzyBubbles-Bold;
@@ -87,12 +86,20 @@ body {
     border: 0;
 }
 
-.gallery-btn:hover{
+.head-btn{
+    cursor: pointer;
+}
+
+.clicked{
+    background: rgba(217, 217, 217, 0.598) ;
+    font-size: 1.8rem;
+    border-radius: 5px;
+}
+
+.head-btn:hover{
     background-color: #00880c79;
     cursor: pointer;
-    border: 1px solid black;
     border-radius: 10px;
-    padding: 2px;
 }
 
 .nav-area {
@@ -101,7 +108,7 @@ body {
 
 /* MAIN */
 
-.main-container {
+.main-gallery-container {
     background-color: #393b42;
     width: 95%;
     padding: 30px;
@@ -112,7 +119,7 @@ body {
 
 .meme-editor-container {
     flex-direction: column;
-    height: 120vh;
+    height: 150vh;
     justify-content: space-evenly;
 }
 
@@ -224,8 +231,6 @@ body {
     justify-items: center;
 }
 
-
-
 .fonts{
     font-size: 1.5em;
     border-radius: 30px;
@@ -281,6 +286,10 @@ body {
     /* width: 100%; */
 }
 
+
+.filter-by-key{
+    width: 100%;
+}
 .gallery-item {
     width: 100%;
 }
@@ -308,10 +317,22 @@ body {
 .menu-btn {
     background: linear-gradient(90deg, var(--clr-1), var(--clr-2));
     width: 18%;
-    height: 2.5rem;
+    height: 3.5rem;
+    cursor: pointer;
     min-width: max-content;
 }
 
+.btn-humburger{
+    display: block;
+    width: 50px;
+    height: 50px;
+    font-size:36px;
+    color: var(--clr1);
+    background: fixed;
+    z-index: 15;
+    border-radius: 6px;
+    margin-right: 2%;
+}
 
 .menu-area-item {
     border-radius: 30px;
@@ -340,6 +361,7 @@ body {
 .grid-img {
     width: 100%;
     height: 100%;
+    cursor: pointer;
     object-fit: cover;
     border-radius: 10px;
     box-shadow: 1px 3px 4px 2px rgb(182, 182, 182);
@@ -355,11 +377,11 @@ body {
         grid-template-columns: repeat(2, 1fr);
     }
     body{
-        height: 100vh;
+        height: 120vh;
         justify-content: space-evenly;
     }
     .meme-editor-container{
-        height: 120vh;
+        height: 100vh;
         width: 100%;
     }
     .canvas-container {
@@ -368,8 +390,8 @@ body {
     }
     
     .edit-section{
-        width: 80%;
-        height: 60%;
+        width: 400px;
+        height: 400px;
     }
     .menu-area-item {
         border-radius: 30px;
@@ -383,10 +405,33 @@ body {
         width: 18%;
         height: fit-content;
         min-height: 3rem;
-        /* min-width: max-content; */
     }
-    .text-style-editor {
-        height: 30%;
+}
+
+@media (max-width:840px) {
+    body.open-menu.nav-links {
+        pointer-events: auto;
+        flex-direction: column;
+    }
+    
+    body.open-menu .nav-links {
+        transform: translateY(88px);
+        transition: .6s;
+        align-items:center;
+        background: linear-gradient(var(--clr-1), var(--clr-2));
+        height: 100px;
+      }
+    .nav-links {
+        width: 50%;
+        position: absolute;
+        transform: translateY(calc(-90*3px));
+        flex-basis: 100%;
+        right: 8px;
+        overflow: hidden;
+        z-index: 10;
+        opacity: 100%;
+        flex-direction: column;
+        transition: .6s;
     }
 }
 
@@ -395,6 +440,17 @@ body {
 @media (min-width:840px) {
     html {
         font-size: 14px;
+    }
+    body{
+        height: 100vh;
+        justify-content: space-evenly;
+    }
+    .nav-links{
+        flex-direction: row;
+    }
+    
+    .btn-humburger{
+        display: none;
     }
 
     .gallery-area {
@@ -408,6 +464,15 @@ body {
 
     .menu-first-section {
         width: 45%;
+    }
+    .head {
+        width: 95%;
+        height: 75px;
+        background: linear-gradient(90deg, var(--clr-1), var(--clr-2));
+        border-radius: 50px;
+        font-size: 1.5rem;
+        color: white;
+        font-family: FuzzyBubbles-Bold;
     }
 
     .menu-second-section {

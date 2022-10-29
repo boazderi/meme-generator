@@ -23,6 +23,19 @@ function renderMeme(){
 }
 
 
+function onToggleMenu(elButton) {
+    document.querySelector('body').classList.toggle('open-menu')
+    elButton.innerText = elButton.innerText === '☰'? 'X' : '☰'
+}
+
+function onNavClick(elLinkClicked){
+    const elNavs = document.querySelectorAll('.head-btn')
+    for (var i =0; i < elNavs.length; i++){
+        elNavs[i].classList.remove('clicked')
+    }
+    elLinkClicked.classList.add('clicked')
+}
+
 
 
 function onTxtInput(txt){
@@ -63,6 +76,23 @@ function onAlignText(direction){
 
 function onDeleteMeme(){
     clearMeme()
+}
+
+function onSaveMeme(){
+    saveMemeToStorage()
+}
+
+function onMemesClicked(){
+    // this function not finished
+    const currMemes = getSavedMemes()
+    console.log('currMemes',currMemes);
+    const elSavedMemes = document.querySelector('.saved-memes-container')
+    let imgsStr = ``
+    currMemes.forEach((img) => {
+        imgsStr += `
+        <img src="./${img.url}"  onclick="onImgSelect(${img.id})" class="grid-img img${img.id}" alt="">
+        `
+    })
 }
 
 function downloadCanvas(elLink) {
@@ -122,5 +152,5 @@ function onChangeFont(fontName){
 }
 
 function onRandomImage(){
-
+    const currImage = getRandomImage()
 }

@@ -15,15 +15,15 @@
     <header class="head">
         <nav class="nav-bar flex align-items-center justify-between head">
             <div class="logo nav-area">Boaz Meme generator</div>
-            <div class="links flex nav-area justify-evenly">
-                <div class="head-btn gallery-btn" onclick="onGalleryClicked()">Gallery</div>
-                <div class="head-btn about-link">About</div>
+            <div class="nav-links flex nav-area justify-evenly">
+                <div class="head-btn gallery-btn clicked" onclick="onGalleryClicked(); onNavClick(this)">Gallery</div>
+                <div class="head-btn saved-memes-btn" onclick="onMemesClicked(); onNavClick(this)">Memes</div>
+                <div class="head-btn about-link" onclick="onNavClick(this)">About</div>
             </div>
+            <button class="btn-humburger" onclick="onToggleMenu(this)">☰</button>
         </nav>
     </header>
     <section class="meme-editor-container flex hide justify-evenly align-items-center">
-        <!-- <canvas class="edit-item canvas-container" id="canvas" >
-        </canvas> -->
         <canvas class="edit-item canvas-container" width="400" height="400" id="canvas">
         </canvas>
         <div class="edit-item flex flex-column align-items-center justify-evenly edit-section">
@@ -37,6 +37,9 @@
                 </button>
                 <button class="text-stracture-btn delete-meme" onclick="onDeleteMeme()">
                     <img src="./img/ICONS/bin.png" class="text-stracture-icon">
+                </button>
+                <button class="text-stracture-btn save-meme" onclick="onSaveMeme()">
+                    <img src="./img/ICONS/save-file.png" class="text-stracture-icon">
                 </button>
             </div>
             <div class="text-style-editor grid">
@@ -83,10 +86,10 @@
             <div class="share-container"></div>
         </div>
     </section>
-    <section class="main-container images-gallery align-items-center flex flex-column">
+    <section class="main-gallery-container images-gallery align-items-center flex flex-column">
         <div class="gallery-item menu-area flex flex-column justify-between align-items-center">
             <div class="menu-first-section flex align-items-center">
-                <form oninput="onSetFilterByKey(keywords.value, event)">
+                <form oninput="onSetFilterByKey(keywords.value, event)" class="filter-by-key">
                     <input class="menu-area-item search-photo-input" name="keywords" type="search" list="keywords"
                          placeholder="search">
                     <datalist id="keywords">
@@ -98,10 +101,12 @@
                 <button class="menu-area-item menu-btn">More</button>
                 <button class="menu-area-item menu-btn" onclick="onRandomImage()">Im flexible!</button>
             </div>
-
         </div>
         <div class="gallery-item gallery-area grid">
         </div>
+
+    </section>
+    <section class="saved-memes-container hide">
 
     </section>
     <footer>
