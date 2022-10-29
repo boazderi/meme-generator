@@ -22,8 +22,6 @@ var gKeyWords = [
     ['toy story'],
 ]
 var gImgs = []
-let gCurrColor
-
 let edditorStatus = {
     gGalleryIsOn: true,
     gMemeStatus: false
@@ -49,6 +47,16 @@ function createSqureImgs() {
     }
 }
 
+function getFilteredKeywords(){
+    let filteredKeywords = []
+    gKeyWords.forEach(keywords => {
+        keywords.forEach(keyword => {
+            if (!filteredKeywords.includes(keyword))
+            filteredKeywords.push(keyword)
+        })
+    })
+    return filteredKeywords
+}
 
 var gMeme = {
     selectedImgId: 5,
@@ -58,7 +66,8 @@ var gMeme = {
         size: 30,
         align: 'center',
         color: 'black',
-        heightLine: 30,
+        strokeColor: 'white',
+        heightLine: 45,
         fontFamily: 'Impact'
     }]
 }
@@ -81,13 +90,12 @@ function setImg(imgid) {
     gMeme.selectedImgId = imgid
 }
 
-// function setColor(newColor) {
-//     gCurrColor = newColor
-//     gMeme.lines[gMeme.selectedLineIdx].color = gCurrColor
-// }
-
 function setColor(newColor) {
     gMeme.lines[gMeme.selectedLineIdx].color = newColor
+}
+
+function setStrokeColor(color){
+    gMeme.lines[gMeme.selectedLineIdx].strokeColor = color
 }
 
 function setFontSize(num) {
@@ -101,11 +109,13 @@ function addTextLine() {
             txt: '',
             size: 30,
             align: 'center',
-            color: gCurrColor,
-            heightLine: gElCanvas.height - 20
+            color: 'black',
+            strokeColor: 'white',
+            heightLine: gElCanvas.height - 45,
+            fontFamily: 'Impact'
         }
     )
-    gMeme.selectedLineIdx++
+    switchLines()
 }
 
 
@@ -121,4 +131,11 @@ function setAlignTxt(direction){
 
 function setFontStyle(fontName){
     gMeme.lines[gMeme.selectedLineIdx].fontFamily = fontName
+}
+
+function getFilteredImgs(key){
+    let filteredImgs = gImgs.filter(imgData => {
+       return imgData.keywords.some(word => word.includes(key))
+    })
+    return filteredImgs
 }

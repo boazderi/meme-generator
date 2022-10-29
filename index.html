@@ -16,7 +16,7 @@
         <nav class="nav-bar flex align-items-center justify-between head">
             <div class="logo nav-area">Boaz Meme generator</div>
             <div class="links flex nav-area justify-evenly">
-                <div class="head-btn gallery-btn" onclick="onGalleryClicked()" >Gallery</div>
+                <div class="head-btn gallery-btn" onclick="onGalleryClicked()">Gallery</div>
                 <div class="head-btn about-link">About</div>
             </div>
         </nav>
@@ -24,7 +24,7 @@
     <section class="meme-editor-container flex hide justify-evenly align-items-center">
         <!-- <canvas class="edit-item canvas-container" id="canvas" >
         </canvas> -->
-        <canvas class="edit-item canvas-container" width="400" height="400" id="canvas" >
+        <canvas class="edit-item canvas-container" width="400" height="400" id="canvas">
         </canvas>
         <div class="edit-item flex flex-column align-items-center justify-evenly edit-section">
             <input class="text-editor-input" type="text" oninput="onTxtInput(this.value)" placeholder="Edit text here">
@@ -63,6 +63,10 @@
                     <option value="Sans-Serif">Sans-Serif</option>
                 </select>
                 <label class="label-style-icon">
+                    <img src="./img/ICONS/text stroke.png" class="style-icon">
+                    <input type="color" name="color" style="display: none;" onchange="onSetStrokeColor(this.value)">
+                </label>
+                <label class="label-style-icon">
                     <img src="./img/ICONS/palette.png" class="style-icon">
                     <input type="color" name="color" style="display: none;" onchange="onSetColor(this.value)">
                 </label>
@@ -82,14 +86,19 @@
     <section class="main-container images-gallery align-items-center flex flex-column">
         <div class="gallery-item menu-area flex flex-column justify-between align-items-center">
             <div class="menu-first-section flex align-items-center">
-                <input class="menu-area-item search-photo-input" type="search" placeholder="search" >
+                <form oninput="onSetFilterByKey(keywords.value, event)">
+                    <input class="menu-area-item search-photo-input" name="keywords" type="search" list="keywords"
+                         placeholder="search">
+                    <datalist id="keywords">
+                    </datalist>
+                </form>
             </div>
             <div class="menu-second-section flex align-items-center justify-between">
                 <div class="menu-area-item choose-from-txt"> a lot of text comes here in white</div>
-                <button class="menu-area-item more-btn">More</button>
-                <button class="menu-area-item" onclick="onRandomImage()">Im flexible!</button>
+                <button class="menu-area-item menu-btn">More</button>
+                <button class="menu-area-item menu-btn" onclick="onRandomImage()">Im flexible!</button>
             </div>
-            
+
         </div>
         <div class="gallery-item gallery-area grid">
         </div>

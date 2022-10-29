@@ -305,7 +305,7 @@ body {
     height: auto;
 }
 
-.more-btn {
+.menu-btn {
     background: linear-gradient(90deg, var(--clr-1), var(--clr-2));
     width: 18%;
     height: 2.5rem;

@@ -7,11 +7,11 @@ let gLastMemeId
 function onInit(){
     console.log('start init');
     initCanvas()
+    initGallery()
     renderGallery()
 }
 
 function renderMeme(){
-    console.log('start render');
     gElGallery.classList.add('hide')
     edditorStatus.gGalleryIsOn = false
     gElMemeEditor.classList.remove('hide')
@@ -24,18 +24,19 @@ function renderMeme(){
 
 
 
+
 function onTxtInput(txt){
     setLineTxt(txt)
     renderMeme()
-    // const currMeme = getMeme() 
-    // const txtPos = currMeme.lines[gMeme.selectedLineIdx].position
-    // const currMemeTxt = currMeme.lines[gMeme.selectedLineIdx].txt
-    // drawItem({txt: {currMemeTxt, x: txtPos.x, y: txtPos.y}})
 }
 
 function onSetColor(color){
-    console.log('Color',color);
     setColor(color)
+    renderMeme()
+}
+
+function onSetStrokeColor(color){
+    setStrokeColor(color)
     renderMeme()
 }
 
@@ -46,10 +47,12 @@ function onChangeFontSize(num){
 
 function onAddLine(){
     addTextLine()
+    document.querySelector('.text-editor-input').value = ''
     renderMeme()
 }
 
 function onSwitchLines(){
+    document.querySelector('.text-editor-input').value = gMeme.lines[gMeme.selectedLineIdx + 1].txt
     switchLines()
 }
 
@@ -64,7 +67,6 @@ function onDeleteMeme(){
 
 function downloadCanvas(elLink) {
     const dataUrl = gElCanvas.toDataURL()
-    console.log('Image data: ', dataUrl)
     elLink.href = dataUrl
     elLink.download = 'my paint - boaz'
 }
@@ -116,10 +118,9 @@ function doUploadImg(imgDataUrl, onSuccess) {
 }
 
 function onChangeFont(fontName){
-    console.log('fontName',fontName);
     setFontStyle(fontName)
 }
 
 function onRandomImage(){
-    
+
 }
