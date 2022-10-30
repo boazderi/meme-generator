@@ -11,7 +11,7 @@ var gKeyWords = [
     ['baby', 'black', 'big eyes'],
     ['joker', 'funny', 'commedy'],
     ['joke', 'baby'],
-    ['obama', 'president', 'lough'],
+    ['obama', 'president', 'laugh'],
     ['sport', 'gays', 'boxers'],
     ['haim hecht', 'zadik', 'honesty'],
     ['dicaprio', 'congratulations'],

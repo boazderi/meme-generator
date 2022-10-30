@@ -5,7 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/emojionearea/3.4.2/emojionearea.min.css" integrity="sha512-vEia6TQGr3FqC6h55/NdU3QSM5XR6HSl5fW71QTKrgeER98LIMGwymBVM867C1XHIkYD9nMTfWK2A0xcodKHNA==" crossorigin="anonymous" referrerpolicy="no-referrer" />    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/emojionearea/3.4.2/emojionearea.min.css"
+        integrity="sha512-vEia6TQGr3FqC6h55/NdU3QSM5XR6HSl5fW71QTKrgeER98LIMGwymBVM867C1XHIkYD9nMTfWK2A0xcodKHNA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./css/main.css">
     <link rel="icon" href="https://cdn.pixabay.com/photo/2014/04/03/10/54/smiley-311701_1280.png">
     <title>MEME GENERATOR</title>
 </head>
@@ -15,11 +18,11 @@
         <nav class="nav-bar flex align-items-center justify-between head">
             <div class="logo nav-area">Boaz Meme generator</div>
             <div class="nav-links flex nav-area justify-evenly">
-                <div class="head-btn gallery-btn clicked" onclick="onNavClick(this)">Gallery</div>
-                <div class="head-btn saved-memes-btn" onclick="onMemesClicked(); onNavClick(this)">Memes</div>
-                <div class="head-btn editor-link" onclick="onNavClick(this)">Editor</div>
+                <div class="head-btn gallery-btn clicked" onclick="onNavClick(this, event)">Gallery</div>
+                <div class="head-btn saved-memes-btn" onclick="onNavClick(this, event)">Memes</div>
+                <div class="head-btn editor-link" onclick="onNavClick(this, event)">Editor</div>
             </div>
-            <button class="btn-humburger" onclick="onToggleMenu(this)">☰</button>
+            <button class="btn-humburger" onclick="onToggleMenu()">☰</button>
         </nav>
     </header>
     <section class="meme-editor-container flex hide justify-evenly align-items-center">
@@ -27,36 +30,51 @@
         </canvas>
         <div class="edit-item flex flex-column align-items-center justify-evenly edit-section">
             <!-- <textarea id="textarea" cols="30" rows="10" oninput="onTxtInput(this.value)"></textarea> -->
+
             <input class="text-editor-input" type="text" oninput="onTxtInput(this.value)" placeholder="Edit text here">
+            <ul class="emojis-container flex justify-evenly">
+                <li onclick="onAddEmoji(this)">😀</li>
+                <li onclick="onAddEmoji(this)">😂</li>
+                <li onclick="onAddEmoji(this)">🤣</li>
+                <li onclick="onAddEmoji(this)">😍</li>
+                <li onclick="onAddEmoji(this)">🤬</li>
+                <li onclick="onAddEmoji(this)">😈</li>
+                <li onclick="onAddEmoji(this)">👍🏻</li>
+                <li onclick="onAddEmoji(this)">💪🏻</li>
+                <li onclick="onAddEmoji(this)">🙏🏻</li>
+                <li onclick="onAddEmoji(this)">❤️</li>
+            </ul>
             <div class="update-text-stracture-btns flex justify-evenly">
-                <button class="text-stracture-btn switch-lines " onclick="onSwitchLines()">
+                <button class="text-stracture-btn switch-lines" title="Switch lines" onclick="onSwitchLines()">
                     <img src="./img/ICONS/up-and-down-arrows.png" class="text-stracture-icon">
                 </button>
                 <button class="text-stracture-btn add-line" onclick="onAddLine()">
-                    <img src="./img/ICONS/add-button.png" class="text-stracture-icon">
+                    <img src="./img/ICONS/add-button.png" title="Add line" class="text-stracture-icon">
                 </button>
-                <button class="text-stracture-btn delete-meme" onclick="onDeleteMeme()">
-                    <img src="./img/ICONS/bin.png" class="text-stracture-icon">
-                </button>
-                <button class="text-stracture-btn save-meme" onclick="onSaveMeme()">
-                    <img src="./img/ICONS/save-file.png" class="text-stracture-icon">
+                <button class="text-stracture-btn delete-meme" onclick="onDeleteLine()">
+                    <img src="./img/ICONS/bin.png" title="Delete meme" class="text-stracture-icon">
                 </button>
             </div>
             <div class="text-style-editor grid">
                 <label class="label-style-icon increase-font">
-                    <img src="./img/ICONS/increase-font-size.png" onclick="onChangeFontSize(1)" class="style-icon">
+                    <img src="./img/ICONS/increase-font-size.png" title="Increase font" onclick="onChangeFontSize(1)"
+                        class="style-icon">
                 </label>
                 <label class="label-style-icon decrease-font">
-                    <img src="./img/ICONS/decrease-font-size.png" onclick="onChangeFontSize(-1)" class="style-icon">
+                    <img src="./img/ICONS/decrease-font-size.png" title="Decrease font" onclick="onChangeFontSize(-1)"
+                        class="style-icon">
                 </label>
                 <label class="label-style-icon align-to-left">
-                    <img src="./img/ICONS/left-align.png" onclick="onAlignText('left')" class="style-icon">
+                    <img src="./img/ICONS/left-align.png" title="Align to left" onclick="onAlignText('left')"
+                        class="style-icon">
                 </label>
                 <label class="label-style-icon align-center">
-                    <img src="./img/ICONS/center-align.png" onclick="onAlignText('center')" class="style-icon">
+                    <img src="./img/ICONS/center-align.png" title="Align center" onclick="onAlignText('center')"
+                        class="style-icon">
                 </label>
                 <label class="label-style-icon align-to-right">
-                    <img src="./img/ICONS/right-align.png" onclick="onAlignText('right')" class="style-icon">
+                    <img src="./img/ICONS/right-align.png" title="Align to right" onclick="onAlignText('right')"
+                        class="style-icon">
                 </label>
                 <select name="font" class="fonts" onchange="onChangeFont(this.value)">
                     <option value="Impact">Impact</option>
@@ -66,40 +84,47 @@
                     <option value="Sans-Serif">Sans-Serif</option>
                 </select>
                 <label class="label-style-icon">
-                    <img src="./img/ICONS/text stroke.png" class="style-icon">
-                    <input type="color" name="color" style="display: none;" onchange="onSetStrokeColor(this.value)">
+                    <img src="./img/ICONS/text stroke.png" title="Stroke color" class="style-icon">
+                    <input type="color" name="color" width="0" height="0" style="opacity: 0; position: absolute;"
+                        onchange="onSetStrokeColor(this.value)">
                 </label>
                 <label class="label-style-icon">
-                    <img src="./img/ICONS/palette.png" class="style-icon">
-                    <input type="color" name="color" style="display: none;" onchange="onSetColor(this.value)">
+                    <img src="./img/ICONS/palette.png" title="Fill color" class="style-icon">
+                    <input type="color" name="color" width="0" height="0" style="opacity: 0; position: absolute;"
+                        onchange="onSetColor(this.value)">
                 </label>
             </div>
-            <div class="share-download flex justify-evenly">
-                <button class="share-btn bottom-btn" onclick="uploadImgToFacebook()">
-                    <img src="./img/newIcons/Forme_7.png" class="text-stracture-icon"> Share
+            <div class="share-download flex justify-evenly align-items-center">
+                <button class="bottom-btn share-btn flex justify-center align-items-center"
+                    onclick="uploadImgToFacebook()">
+                    <img src="./img/newIcons/Forme_7.png" class="text-stracture-icon"> <span>Share</span>
                 </button>
-                <a href="" class="download-btn bottom-btn" onclick="downloadCanvas(this)" download="my paint">
-                    <img src="./img/newIcons/Forme_8.png" class="text-stracture-icon"> Download
-                </a>
+                <button class="bottom-btn download-btn flex justify-center align-items-center">
+                    <img src="./img/newIcons/Forme_8.png" class="text-stracture-icon">
+                    <a href="" class="a-tag" onclick="downloadCanvas(this)" download="my paint">Download</a>
+                </button>
+                <button class="bottom-btn save-meme flex justify-center align-items-center" onclick="onSaveMeme()">
+                    <img src="./img/ICONS/saved.png" class="text-stracture-icon save-icon"><span>Save</span>
+                </button>
             </div>
             <div class="user-msg"></div>
             <div class="share-container"></div>
         </div>
     </section>
-    <section class="main-gallery-container images-gallery align-items-center flex flex-column">
+    <section class="main-gallery-container images-gallery align-items-center flex scroller flex-column">
         <div class="gallery-item menu-area flex flex-column justify-between align-items-center">
             <div class="menu-first-section flex align-items-center">
                 <form oninput="onSetFilterByKey(keywords.value, event)" class="filter-by-key">
                     <input class="menu-area-item search-photo-input" name="keywords" type="search" list="keywords"
-                         placeholder="search">
+                        placeholder="Search">
                     <datalist id="keywords">
                     </datalist>
                 </form>
             </div>
             <div class="menu-second-section flex align-items-center justify-between">
-                <div class="menu-area-item choose-from-txt"> a lot of text comes here in white</div>
+                <!-- <div class="menu-area-item choose-from-txt"> a lot of text comes here in white</div> -->
                 <button class="menu-area-item menu-btn">More</button>
-                <button class="menu-area-item menu-btn" onclick="onRandomImage()">Im flexible!</button>
+                <button class="menu-area-item menu-btn" onclick="onRandomImage()">I'm flexible!</button>
             </div>
         </div>
         <div class="gallery-item gallery-area grid">
@@ -109,7 +134,22 @@
     <section class="saved-memes-container flex justify-evenly hide">
 
     </section>
-    <footer>
+    <footer class="flex flex-column align-items-center justify-between">
+            <small class="p-container">
+                &#9400; This site developed by Boaz Deri, find me here
+            </small>
+            <div class="flex icons-container">
+                <a href="https://www.facebook.com/boazderi/">
+                    <div class="icon">
+                        <img class="facebook-icon" src="./img/ICONS/facebook.svg" width="30px" height="30px" alt="">
+                    </div>
+                </a>
+                <a href="https://twitter.com/boaz_deri">
+                    <div class="icon">
+                        <img class="twitter-icon" src="./img/ICONS/twitter.svg" width="30px" height="30px" alt="">
+                    </div>
+                </a>
+            </div>
     </footer>
     <!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/emojionearea/3.4.2/emojionearea.min.js" integrity="sha512-hkvXFLlESjeYENO4CNi69z3A1puvONQV5Uh+G4TUDayZxSLyic5Kba9hhuiNLbHqdnKNMk2PxXKm0v7KDnWkYA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>    <script src="./js/services/utils.js"></script> -->

@@ -17,7 +17,7 @@ function onInit() {
 
 function renderMeme() {
     const elEditorTitle = document.querySelector('.editor-link')
-    onNavClick(elEditorTitle)
+    onNavClick(elEditorTitle, false)
     const currMeme = getMeme()
     const currMemeImgPath = gImgs.find(img => img.id === currMeme.selectedImgId).url
     const currMemeTxt = currMeme.lines[gMeme.selectedLineIdx].txt
@@ -25,14 +25,15 @@ function renderMeme() {
 }
 
 
-function onToggleMenu(elButton) {
+function onToggleMenu() {
+    const elButton = document.querySelector('.btn-humburger')
     document.querySelector('body').classList.toggle('open-menu')
     elButton.innerText = elButton.innerText === '☰' ? 'X' : '☰'
 }
 
-function onNavClick(elLinkClicked) {
+function onNavClick(elLinkClicked, isMenue=true ) {
     const elNavs = document.querySelectorAll('.head-btn')
-
+    if (isMenue) onToggleMenu()
     for (var i = 0; i < elNavs.length; i++) {
         elNavs[i].classList.remove('clicked')
         gElMainSections[i].classList.add('hide')
@@ -42,6 +43,7 @@ function onNavClick(elLinkClicked) {
     if (currTitle === 'Gallery') {
         gElGallery.classList.remove('hide')
     } else if (currTitle === 'Memes') {
+        onMemesClicked()
         gElSavedMemes.classList.remove('hide')
     } else {
         gElMemeEditor.classList.remove('hide')
@@ -86,8 +88,10 @@ function onAlignText(direction) {
     renderMeme()
 }
 
-function onDeleteMeme() {
-    clearMeme()
+function onDeleteLine() {
+    clearLine()
+    document.querySelector('.text-editor-input').value = ''
+    renderMeme()
 }
 
 function onSaveMeme() {
@@ -165,4 +169,14 @@ function onChangeFont(fontName) {
 
 function onRandomImage() {
     const currImage = getRandomImage()
+}
+
+function onAddEmoji(elEmoji){
+    const elTextInput = document.querySelector('.text-editor-input')
+    const currEmoji = elEmoji.innerText
+    elTextInput.value += currEmoji
+    console.log('elEmoji.innerText',elEmoji.innerText);
+    const txt = elTextInput.value
+    setLineTxt(txt)
+    renderMeme()
 }

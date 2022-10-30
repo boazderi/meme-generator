@@ -44,8 +44,8 @@ function drawTxt() {
 }
 
 
-function clearMeme(){
-    gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height)
+function clearLine(){
+    gMeme.lines[gMeme.selectedLineIdx].txt = ''
 }
 
 function saveAndRestore() {
