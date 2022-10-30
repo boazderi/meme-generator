@@ -180,3 +180,8 @@ function onAddEmoji(elEmoji){
     setLineTxt(txt)
     renderMeme()
 }
+
+function onDragLine(diff){
+    setlineHeight(diff)
+    renderMeme()
+}

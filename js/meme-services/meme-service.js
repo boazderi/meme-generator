@@ -147,3 +147,8 @@ function getSavedMemes(){
     const currMemes = loadFromStorage('savedMemes')
     return currMemes
 }
+
+
+function setlineHeight(diff){
+    gMeme.lines[gMeme.selectedLineIdx].heightLine += diff
+}
