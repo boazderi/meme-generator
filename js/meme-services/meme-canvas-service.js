@@ -37,7 +37,6 @@ function drawTxt() {
         gCtx.strokeStyle = line.strokeColor
         gCtx.fillStyle = line.color
         gCtx.font = `${line.size}px ${line.fontFamily}`
-        console.log('gMeme',gMeme);
         gCtx.fillText(memeTxt, x, y)
         gCtx.strokeText(memeTxt, x, y)
     }

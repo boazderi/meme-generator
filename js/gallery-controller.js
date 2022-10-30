@@ -1,7 +1,6 @@
 'use strict'
 
 
-const gElGallery = document.querySelector('.images-gallery')
 
 
 function initGallery(){
@@ -37,16 +36,6 @@ function onImgSelect(imgId){
     setImg(imgId)
     renderMeme()
 }
-
-function onGalleryClicked(){
-    if (!edditorStatus.gGalleryIsOn) {
-        edditorStatus.gGalleryIsOn = true
-        gElGallery.classList.remove('hide')
-        gElMemeEditor.classList.add('hide')
-        edditorStatus.gMemeStatus = false
-    } 
-}
-
 
 function onSetFilterByKey(key, ev){
     ev.preventDefault()

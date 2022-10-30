@@ -86,17 +86,23 @@ body {
     border: 0;
 }
 
-.head-btn{
+.head-btn {
     cursor: pointer;
 }
 
-.clicked{
-    background: rgba(217, 217, 217, 0.598) ;
+
+emoji-picker {
+    width: 100%;
+    height: 20%;
+}
+
+.clicked {
+    background: rgba(217, 217, 217, 0.598);
     font-size: 1.8rem;
     border-radius: 5px;
 }
 
-.head-btn:hover{
+.head-btn:hover {
     background-color: #00880c79;
     cursor: pointer;
     border-radius: 10px;
@@ -143,28 +149,29 @@ body {
 }
 
 
-.update-text-stracture-btns{
+.update-text-stracture-btns {
     width: 100%;
 }
 
-.text-stracture-icon{
+.text-stracture-icon {
     max-width: 60px;
     max-height: 60px;
 }
 
-.text-stracture-btn{
+.text-stracture-btn {
     border-radius: 10px;
+    cursor: pointer;
 }
 
-.switch-lines{
-    background: linear-gradient(rgb(73, 208, 253), rgb(0, 64, 255)) ;
+.switch-lines {
+    background: linear-gradient(rgb(73, 208, 253), rgb(0, 64, 255));
 }
 
-.add-line{
+.add-line {
     background: linear-gradient(#3ddb72, rgb(0, 114, 0));
 }
 
-.delete-meme{
+.delete-meme {
     background: linear-gradient(rgb(246, 101, 98), rgb(156, 0, 0));
 }
 
@@ -181,67 +188,71 @@ body {
 .text-style-editor {
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    grid-template-areas: 
-    "up-btn up-btn up-btn up-btn up-btn"
-    "down-left-btn down-middle down-right"
+    grid-template-areas:
+        "up-btn up-btn up-btn up-btn up-btn"
+        "down-left-btn down-middle down-right"
     ;
     width: 100%;
     height: 40%;
     background-color: #17a5a0;
-    border-radius: 30px;   
+    border-radius: 30px;
 }
 
-.increase-font{
+.increase-font {
     grid-area: up-btn;
     grid-column: 1;
     grid-row: 1;
 }
 
-.decrease-font{
+.decrease-font {
     grid-area: up-btn;
     grid-column: 2;
     grid-row: 1;
 }
 
-.align-to-left{
+.align-to-left {
     grid-area: up-btn;
     grid-column: 3;
     grid-row: 1;
 }
-.align-center{
+
+.align-center {
     grid-area: up-btn;
     grid-column: 4;
     grid-row: 1;
 }
 
-.align-to-right{
+.align-to-right {
     grid-area: up-btn;
     grid-column: 5;
     grid-row: 1;
 }
-.fonts{
+
+.fonts {
     grid-area: down-left-btn;
     grid-column: 1/4;
     grid-row: 2;
 }
 
-.label-style-icon{
+.label-style-icon {
     display: grid;
     align-items: center;
     justify-items: center;
+    cursor: pointer;
 }
 
-.fonts{
+.fonts {
     font-size: 1.5em;
     border-radius: 30px;
     text-align: center;
 }
 
-.share-download{
+.share-download {
     width: 100%;
 }
 
-.bottom-btn{
+.bottom-btn {
+    cursor: pointer;
     border-radius: 10px;
     color: white;
     width: 35%;
@@ -249,22 +260,22 @@ body {
     font-size: 1.5em;
 }
 
-.share-btn{
+.share-btn {
     background: linear-gradient(deepskyblue, rgb(43, 97, 233))
 }
 
-.share-container{
+.share-container {
     background-color: #fff;
     font-size: 1.5em;
 }
 
-.user-msg{
+.user-msg {
     color: white;
     font-size: 1.2em;
 }
 
-.download-btn{
-    background: linear-gradient(rgb(223, 113, 245),purple);
+.download-btn {
+    background: linear-gradient(rgb(223, 113, 245), purple);
 }
 
 
@@ -287,9 +298,10 @@ body {
 }
 
 
-.filter-by-key{
+.filter-by-key {
     width: 100%;
 }
+
 .gallery-item {
     width: 100%;
 }
@@ -322,16 +334,17 @@ body {
     min-width: max-content;
 }
 
-.btn-humburger{
+.btn-humburger {
     display: block;
     width: 50px;
     height: 50px;
-    font-size:36px;
+    font-size: 36px;
     color: var(--clr1);
     background: fixed;
     z-index: 15;
     border-radius: 6px;
     margin-right: 2%;
+    cursor: pointer;
 }
 
 .menu-area-item {
@@ -368,31 +381,56 @@ body {
 
 }
 
+/* Saved-memes area */
+
+.saved-memes-container {
+    margin-top: 50px;
+    height: 100%;
+    width: 100%;
+}
+
+.saved-meme {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 1px 3px 4px 2px rgb(182, 182, 182);
+}
+
 /* SMALL */
 
 @media (min-width:420px) {
+
+    .saved-meme {
+        width: 190px;
+        height: 190px;
+    }
 
     .gallery-area {
         gap: 15px;
         grid-template-columns: repeat(2, 1fr);
     }
-    body{
+
+    body {
         height: 120vh;
         justify-content: space-evenly;
     }
-    .meme-editor-container{
+
+    .meme-editor-container {
         height: 100vh;
         width: 100%;
     }
+
     .canvas-container {
         width: 400px;
         height: 400px;
     }
-    
-    .edit-section{
+
+    .edit-section {
         width: 400px;
         height: 400px;
     }
+
     .menu-area-item {
         border-radius: 30px;
         font-size: 1.8rem;
@@ -400,6 +438,7 @@ body {
         /* width: 100%; */
         margin-bottom: 10px;
     }
+
     .more-btn {
         background: linear-gradient(90deg, var(--clr-1), var(--clr-2));
         width: 18%;
@@ -409,18 +448,20 @@ body {
 }
 
 @media (max-width:840px) {
+
     body.open-menu.nav-links {
         pointer-events: auto;
         flex-direction: column;
     }
-    
+
     body.open-menu .nav-links {
         transform: translateY(88px);
         transition: .6s;
-        align-items:center;
+        align-items: center;
         background: linear-gradient(var(--clr-1), var(--clr-2));
         height: 100px;
-      }
+    }
+
     .nav-links {
         width: 50%;
         position: absolute;
@@ -438,18 +479,26 @@ body {
 /* MEDIUM */
 
 @media (min-width:840px) {
+
+    .saved-meme {
+        width: 300px;
+        height: 300px;
+    }
+
     html {
         font-size: 14px;
     }
-    body{
+
+    body {
         height: 100vh;
         justify-content: space-evenly;
     }
-    .nav-links{
+
+    .nav-links {
         flex-direction: row;
     }
-    
-    .btn-humburger{
+
+    .btn-humburger {
         display: none;
     }
 
@@ -465,6 +514,7 @@ body {
     .menu-first-section {
         width: 45%;
     }
+
     .head {
         width: 95%;
         height: 75px;
@@ -489,23 +539,27 @@ body {
         width: 400px;
         height: 400px;
     }
-    
-    .edit-section{
+
+    .edit-section {
         width: 400px;
         height: 400px;
     }
+
     .meme-editor-container {
         flex-direction: row;
         height: 550px;
         width: 100%;
     }
-    .edit-item{
+
+    .edit-item {
         padding: 4px;
     }
-    .text-style-editor{
+
+    .text-style-editor {
         height: 50%;
     }
-    .bottom-btn{
+
+    .bottom-btn {
         border-radius: 8px;
         color: white;
         width: 40%;
@@ -517,11 +571,12 @@ body {
 /* LARGE */
 
 @media (min-width:1020px) {
-    
+
     html {
         font-size: 16px;
     }
-    body{
+
+    body {
         height: 100vh;
     }
 
@@ -545,11 +600,12 @@ body {
         background-color: #373b41;
         border-radius: 10%;
     }
+
     .text-style-editor {
         height: 30%;
     }
 
-    .bottom-btn{
+    .bottom-btn {
         border-radius: 10px;
         color: white;
         width: 35%;

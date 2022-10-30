@@ -22,10 +22,6 @@ var gKeyWords = [
     ['toy story'],
 ]
 var gImgs = []
-let edditorStatus = {
-    gGalleryIsOn: true,
-    gMemeStatus: false
-}
 
 const gMemesSaved = []
 
@@ -75,8 +71,6 @@ var gMeme = {
 }
 
 function getMeme() {
-    // setLineTxt(gKeyWords[gMeme.selectedImgId - 1])
-    // gMeme.lines[selectedLineIdx].txt = gKeyWords[gMeme.selectedImgId]
     return gMeme
 }
 
@@ -145,7 +139,7 @@ function getFilteredImgs(key){
 }
 
 function saveMemeToStorage(){
-    gMemesSaved.push(gElCanvas.toDataURL())
+    gMemesSaved.push({url: gElCanvas.toDataURL(), id: gMeme.selectedImgId})
     saveToStorage(`savedMemes`, gMemesSaved)
 }
 

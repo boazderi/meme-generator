@@ -2,21 +2,23 @@
 
 
 const gElMemeEditor = document.querySelector('.meme-editor-container')
+const gElSavedMemes = document.querySelector('.saved-memes-container')
+const gElGallery = document.querySelector('.images-gallery')
+
+const gElMainSections = [gElMemeEditor, gElSavedMemes, gElGallery]
 let gLastMemeId
 
-function onInit(){
+function onInit() {
     console.log('start init');
     initCanvas()
     initGallery()
     renderGallery()
 }
 
-function renderMeme(){
-    gElGallery.classList.add('hide')
-    edditorStatus.gGalleryIsOn = false
-    gElMemeEditor.classList.remove('hide')
-    edditorStatus.gMemeStatus = true
-    const currMeme = getMeme() 
+function renderMeme() {
+    const elEditorTitle = document.querySelector('.editor-link')
+    onNavClick(elEditorTitle)
+    const currMeme = getMeme()
     const currMemeImgPath = gImgs.find(img => img.id === currMeme.selectedImgId).url
     const currMemeTxt = currMeme.lines[gMeme.selectedLineIdx].txt
     drawImgAndTxt(currMemeImgPath, currMemeTxt)
@@ -25,74 +27,84 @@ function renderMeme(){
 
 function onToggleMenu(elButton) {
     document.querySelector('body').classList.toggle('open-menu')
-    elButton.innerText = elButton.innerText === '☰'? 'X' : '☰'
+    elButton.innerText = elButton.innerText === '☰' ? 'X' : '☰'
 }
 
-function onNavClick(elLinkClicked){
+function onNavClick(elLinkClicked) {
     const elNavs = document.querySelectorAll('.head-btn')
-    for (var i =0; i < elNavs.length; i++){
+
+    for (var i = 0; i < elNavs.length; i++) {
         elNavs[i].classList.remove('clicked')
+        gElMainSections[i].classList.add('hide')
     }
     elLinkClicked.classList.add('clicked')
+    const currTitle = elLinkClicked.innerText
+    if (currTitle === 'Gallery') {
+        gElGallery.classList.remove('hide')
+    } else if (currTitle === 'Memes') {
+        gElSavedMemes.classList.remove('hide')
+    } else {
+        gElMemeEditor.classList.remove('hide')
+    }
 }
 
 
 
-function onTxtInput(txt){
+function onTxtInput(txt) {
     setLineTxt(txt)
     renderMeme()
 }
 
-function onSetColor(color){
+function onSetColor(color) {
     setColor(color)
     renderMeme()
 }
 
-function onSetStrokeColor(color){
+function onSetStrokeColor(color) {
     setStrokeColor(color)
     renderMeme()
 }
 
-function onChangeFontSize(num){
+function onChangeFontSize(num) {
     setFontSize(num)
     renderMeme()
 }
 
-function onAddLine(){
+function onAddLine() {
     addTextLine()
     document.querySelector('.text-editor-input').value = ''
     renderMeme()
 }
 
-function onSwitchLines(){
+function onSwitchLines() {
     document.querySelector('.text-editor-input').value = gMeme.lines[gMeme.selectedLineIdx + 1].txt
     switchLines()
 }
 
-function onAlignText(direction){
+function onAlignText(direction) {
     setAlignTxt(direction)
     renderMeme()
 }
 
-function onDeleteMeme(){
+function onDeleteMeme() {
     clearMeme()
 }
 
-function onSaveMeme(){
+function onSaveMeme() {
     saveMemeToStorage()
 }
 
-function onMemesClicked(){
-    // this function not finished
+function onMemesClicked() {
     const currMemes = getSavedMemes()
-    console.log('currMemes',currMemes);
-    const elSavedMemes = document.querySelector('.saved-memes-container')
-    let imgsStr = ``
-    currMemes.forEach((img) => {
-        imgsStr += `
-        <img src="./${img.url}"  onclick="onImgSelect(${img.id})" class="grid-img img${img.id}" alt="">
-        `
-    })
+    if (currMemes){
+        let imgsStr = ``
+        currMemes.forEach((img) => {
+            imgsStr += `
+            <img src="${img.url}" class="saved-meme" onclick="onImgSelect(${img.id})" class="grid-img img${img.id}" alt="">
+            `
+        })
+        gElSavedMemes.innerHTML = imgsStr
+    }
 }
 
 function downloadCanvas(elLink) {
@@ -147,10 +159,10 @@ function doUploadImg(imgDataUrl, onSuccess) {
     XHR.send(formData)
 }
 
-function onChangeFont(fontName){
+function onChangeFont(fontName) {
     setFontStyle(fontName)
 }
 
-function onRandomImage(){
+function onRandomImage() {
     const currImage = getRandomImage()
 }
