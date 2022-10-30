@@ -31,7 +31,7 @@ function onToggleMenu() {
     elButton.innerText = elButton.innerText === '☰' ? 'X' : '☰'
 }
 
-function onNavClick(elLinkClicked, isMenue=true ) {
+function onNavClick(elLinkClicked, isMenue = true) {
     const elNavs = document.querySelectorAll('.head-btn')
     if (isMenue) onToggleMenu()
     for (var i = 0; i < elNavs.length; i++) {
@@ -100,7 +100,7 @@ function onSaveMeme() {
 
 function onMemesClicked() {
     const currMemes = getSavedMemes()
-    if (currMemes){
+    if (currMemes) {
         let imgsStr = ``
         currMemes.forEach((img) => {
             imgsStr += `
@@ -124,13 +124,13 @@ function uploadImgToFacebook() {
         // Encode the instance of certain characters in the url
         const encodedUploadedImgUrl = encodeURIComponent(uploadedImgUrl)
         console.log(encodedUploadedImgUrl)
-        document.querySelector('.user-msg').innerText = `Your photo is available here: ${uploadedImgUrl}`
         // Create a link that on click will make a post in facebook with the image we uploaded
         document.querySelector('.share-container').innerHTML = `
           <a class="btn" href="https://www.facebook.com/sharer/sharer.php?u=${encodedUploadedImgUrl}&t=${encodedUploadedImgUrl}" title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=${uploadedImgUrl}&t=${uploadedImgUrl}'); return false;">
-             Share   
+             Share to facebook  
           </a>`
     }
+    document.querySelector('.share-container').innerText = 'loading'
     // Send the image to the server
     doUploadImg(imgDataUrl, onSuccess)
 }
@@ -171,17 +171,17 @@ function onRandomImage() {
     const currImage = getRandomImage()
 }
 
-function onAddEmoji(elEmoji){
+function onAddEmoji(elEmoji) {
     const elTextInput = document.querySelector('.text-editor-input')
     const currEmoji = elEmoji.innerText
     elTextInput.value += currEmoji
-    console.log('elEmoji.innerText',elEmoji.innerText);
+    console.log('elEmoji.innerText', elEmoji.innerText);
     const txt = elTextInput.value
     setLineTxt(txt)
     renderMeme()
 }
 
-function onDragLine(diff){
+function onDragLine(diff) {
     setlineHeight(diff)
     renderMeme()
 }
